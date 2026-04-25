@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeReserve | Login</title>
+
+  <link rel="stylesheet" href="login.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main class="login-page">
+    <section class="login-left">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>SafeReserve</span>
+      </div>
+
+      <div class="hero-content">
+        <span class="tag">
+          <i class="fa-solid fa-lock"></i>
+          Sistema seguro de reservas
+        </span>
+
+        <h1>Reserve salas com segurança e praticidade.</h1>
+
+        <p>
+          Acesse sua conta para consultar horários disponíveis,
+          reservar salas de estudo e acompanhar suas solicitações.
+        </p>
+      </div>
+
+      <div class="security-info">
+        <div>
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Controle por perfil</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Reservas organizadas</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-clock"></i>
+          <span>Horários monitorados</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-right">
+      <form class="login-card" id="loginForm">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fa-solid fa-user-lock"></i>
+          </div>
+
+          <h2>Entrar no sistema</h2>
+          <p>Informe seus dados para acessar o SafeReserve.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="seuemail@exemplo.com"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+
+          <div class="input-wrapper">
+            <i class="fa-solid fa-key"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label>
+            <input type="checkbox" />
+            Lembrar acesso
+          </label>
+
+          <a href="#">Esqueci minha senha</a>
+        </div>
+
+        <button type="submit">
+          Entrar
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <div class="form-footer">
+          <span>Não tem conta?</span>
+          <a href="../createAccountPage/index.html">Cadastre-se</a>
+        </div>
+
+        <p class="login-message" id="loginMessage"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>

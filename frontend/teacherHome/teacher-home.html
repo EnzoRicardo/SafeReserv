@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeReserve | Home Professor</title>
+
+  <link rel="stylesheet" href="teacher-home.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main class="dashboard-page">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>SafeReserve</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="active">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+
+        <a href="../reservationPage/reservation.html">
+          <i class="fa-solid fa-calendar-plus"></i>
+          Reservar sala
+        </a>
+
+        <a href="../myReservations/my-reservations.html">
+          <i class="fa-solid fa-calendar-check"></i>
+          Minhas reservas
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-user-tie"></i>
+          Meu perfil
+        </a>
+      </nav>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Sair
+      </button>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <span class="page-label">Área do professor</span>
+          <h1>Olá, Professor</h1>
+          <p>Reserve salas comuns, salas de reunião e espaços exclusivos para professores.</p>
+        </div>
+
+        <div class="user-box">
+          <div class="user-avatar">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+
+          <div>
+            <strong>Professor</strong>
+            <span>professor@email.com</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div>
+            <span>Reservas ativas</span>
+            <strong id="activeReservations">3</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-door-open"></i>
+          </div>
+          <div>
+            <span>Salas disponíveis</span>
+            <strong id="availableRooms">8</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <div>
+            <span>Salas exclusivas</span>
+            <strong id="teacherRooms">2</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="main-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Salas disponíveis para professores</h2>
+              <p>Inclui salas comuns e espaços exclusivos para reuniões acadêmicas.</p>
+            </div>
+
+            <a href="../reservationPage/reservation.html" class="primary-btn">
+              <i class="fa-solid fa-plus"></i>
+              Nova reserva
+            </a>
+          </div>
+
+          <div class="rooms-list" id="roomsList"></div>
+        </div>
+
+        <aside class="panel side-panel">
+          <div class="panel-header simple">
+            <div>
+              <h2>Agenda do professor</h2>
+              <p>Próximas reservas e reuniões agendadas.</p>
+            </div>
+          </div>
+
+          <div class="reservations-list" id="reservationsList"></div>
+        </aside>
+      </section>
+    </section>
+  </main>
+
+  <script src="teacher-home.js"></script>
+</body>
+</html>

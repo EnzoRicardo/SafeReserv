@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeReserve | Admin</title>
+
+  <link rel="stylesheet" href="admin-dashboard.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main class="dashboard-page">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>SafeReserve</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="active">
+          <i class="fa-solid fa-chart-line"></i>
+          Dashboard
+        </a>
+
+        <a href="../adminRooms/admin-rooms.html">
+          <i class="fa-solid fa-door-open"></i>
+          Gerenciar salas
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-calendar-check"></i>
+          Reservas
+        </a>
+
+        <a href="../adminLogs/admin-logs.html">
+          <i class="fa-solid fa-file-shield"></i>
+          Logs
+        </a>
+      </nav>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Sair
+      </button>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <span class="page-label">Painel administrativo</span>
+          <h1>Dashboard Admin</h1>
+          <p>Gerencie salas, reservas e acompanhe eventos de segurança.</p>
+        </div>
+
+        <div class="user-box">
+          <div class="user-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+
+          <div>
+            <strong>Administrador</strong>
+            <span>admin@safereserve.com</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-door-open"></i>
+          </div>
+          <div>
+            <span>Total de salas</span>
+            <strong id="roomsCount">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div>
+            <span>Reservas ativas</span>
+            <strong id="activeReservations">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <div>
+            <span>Pendentes</span>
+            <strong id="pendingReservations">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-file-shield"></i>
+          </div>
+          <div>
+            <span>Logs hoje</span>
+            <strong id="logsCount">0</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="main-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Reservas recentes</h2>
+              <p>Últimas solicitações realizadas no sistema.</p>
+            </div>
+          </div>
+
+          <div class="reservations-list" id="reservationsList"></div>
+        </div>
+
+        <aside class="panel side-panel">
+          <div class="panel-header simple">
+            <div>
+              <h2>Ações rápidas</h2>
+              <p>Atalhos para administração.</p>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <a href="../adminRooms/admin-rooms.html">
+              <i class="fa-solid fa-plus"></i>
+              Cadastrar sala
+            </a>
+
+            <a href="#">
+              <i class="fa-solid fa-calendar-days"></i>
+              Ver reservas
+            </a>
+
+            <a href="../adminLogs/admin-logs.html">
+              <i class="fa-solid fa-file-shield"></i>
+              Ver logs
+            </a>
+          </div>
+        </aside>
+      </section>
+    </section>
+  </main>
+
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>

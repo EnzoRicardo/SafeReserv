@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeReserve | Reservar Sala</title>
+
+  <link rel="stylesheet" href="reservation.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main class="dashboard-page">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>SafeReserve</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../studentHome/student-home.html">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+
+        <a href="#" class="active">
+          <i class="fa-solid fa-calendar-plus"></i>
+          Reservar sala
+        </a>
+
+        <a href="../myReservations/my-reservations.html">
+          <i class="fa-solid fa-calendar-check"></i>
+          Minhas reservas
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-user"></i>
+          Meu perfil
+        </a>
+      </nav>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Sair
+      </button>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <span class="page-label">Nova reserva</span>
+          <h1>Reservar sala</h1>
+          <p>Escolha a sala, data e horário para solicitar sua reserva.</p>
+        </div>
+
+        <div class="user-box">
+          <div class="user-avatar">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+
+          <div>
+            <strong>Aluno</strong>
+            <span>enzo@email.com</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="reservation-layout">
+        <form class="reservation-card" id="reservationForm">
+          <div class="card-header">
+            <div>
+              <h2>Dados da reserva</h2>
+              <p>Preencha as informações abaixo.</p>
+            </div>
+
+            <div class="card-icon">
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="room">Sala</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-door-open"></i>
+                <select id="room" required>
+                  <option value="">Selecione uma sala</option>
+                  <option value="Sala de Estudos 01">Sala de Estudos 01</option>
+                  <option value="Sala de Estudos 02">Sala de Estudos 02</option>
+                  <option value="Sala de Reunião 03">Sala de Reunião 03</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reservationType">Tipo de reserva</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-layer-group"></i>
+                <select id="reservationType" required>
+                  <option value="">Selecione o tipo</option>
+                  <option value="individual">Individual</option>
+                  <option value="group">Grupo</option>
+                  <option value="meeting">Reunião</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="date">Data</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-calendar"></i>
+                <input type="date" id="date" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="participants">Quantidade de pessoas</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-users"></i>
+                <input type="number" id="participants" min="1" max="8" value="1" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="startTime">Horário inicial</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-clock"></i>
+                <input type="time" id="startTime" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="endTime">Horário final</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-clock"></i>
+                <input type="time" id="endTime" required />
+              </div>
+            </div>
+          </div>
+
+          <div class="rules-box">
+            <h3>
+              <i class="fa-solid fa-circle-info"></i>
+              Regras da reserva
+            </h3>
+
+            <ul>
+              <li>Reservas comuns são aprovadas automaticamente.</li>
+              <li>A duração máxima sugerida é de até 2 horas.</li>
+              <li>Não é permitido conflito de horário para a mesma sala.</li>
+              <li>A reserva pode ser cancelada pelo aluno antes do horário.</li>
+            </ul>
+          </div>
+
+          <button type="submit" class="primary-btn">
+            Confirmar reserva
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <p class="form-message" id="formMessage"></p>
+        </form>
+
+        <aside class="availability-card">
+          <div class="availability-header">
+            <h2>Horários ocupados</h2>
+            <p>Exemplo visual para a sala selecionada.</p>
+          </div>
+
+          <div class="occupied-list" id="occupiedList"></div>
+        </aside>
+      </section>
+    </section>
+  </main>
+
+  <script src="reservation.js"></script>
+</body>
+</html>

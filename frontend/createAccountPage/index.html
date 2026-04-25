@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SafeReserve | Criar Conta</title>
+
+  <link rel="stylesheet" href="register.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main class="login-page">
+
+    <!-- ESQUERDA (IGUAL LOGIN) -->
+    <section class="login-left">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>SafeReserve</span>
+      </div>
+
+      <div class="hero-content">
+        <span class="tag">
+          <i class="fa-solid fa-user-plus"></i>
+          Crie sua conta
+        </span>
+
+        <h1>Comece a reservar salas agora mesmo.</h1>
+
+        <p>
+          Crie sua conta para acessar o sistema de reservas e ter controle total
+          sobre seus horários e solicitações.
+        </p>
+      </div>
+
+      <div class="security-info">
+        <div>
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Conta segura</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Reservas rápidas</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-lock"></i>
+          <span>Proteção de dados</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIREITA (FORM) -->
+    <section class="login-right">
+      <form class="login-card" id="registerForm">
+
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="fa-solid fa-user-plus"></i>
+          </div>
+
+          <h2>Criar conta</h2>
+          <p>Preencha seus dados para começar.</p>
+        </div>
+
+        <!-- NOME -->
+        <div class="form-group">
+          <label>Nome completo</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="name" placeholder="Seu nome completo" required />
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group">
+          <label>E-mail</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="email" placeholder="seuemail@exemplo.com" required />
+          </div>
+        </div>
+
+        <!-- SENHA -->
+        <div class="form-group">
+          <label>Senha</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-key"></i>
+            <input type="password" id="password" placeholder="Digite sua senha" required />
+          </div>
+        </div>
+
+        <!-- CONFIRMAR SENHA -->
+        <div class="form-group">
+          <label>Confirmar senha</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-key"></i>
+            <input type="password" id="confirmPassword" placeholder="Confirme sua senha" required />
+          </div>
+        </div>
+
+        <!-- TIPO -->
+        <div class="form-group">
+          <label>Tipo de usuário</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user-tag"></i>
+            <select id="role">
+              <option value="student">Aluno</option>
+              <option value="teacher">Professor</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit">
+          Criar conta
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <p class="login-message" id="registerMessage"></p>
+
+        <div class="form-footer">
+          <span>Já tem conta?</span>
+          <a href="../loginPage/login.html">Entrar</a>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <script src="register.js"></script>
+</body>
+</html>

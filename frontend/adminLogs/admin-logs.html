@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeReserve | Logs</title>
+
+  <link rel="stylesheet" href="admin-logs.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main class="dashboard-page">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>SafeReserve</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../adminDashboard/admin-dashboard.html">
+          <i class="fa-solid fa-chart-line"></i>
+          Dashboard
+        </a>
+
+        <a href="../adminRooms/admin-rooms.html">
+          <i class="fa-solid fa-door-open"></i>
+          Gerenciar salas
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-calendar-check"></i>
+          Reservas
+        </a>
+
+        <a href="#" class="active">
+          <i class="fa-solid fa-file-shield"></i>
+          Logs
+        </a>
+      </nav>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Sair
+      </button>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <span class="page-label">Segurança</span>
+          <h1>Logs de auditoria</h1>
+          <p>Acompanhe ações importantes realizadas no sistema.</p>
+        </div>
+
+        <div class="user-box">
+          <div class="user-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+
+          <div>
+            <strong>Administrador</strong>
+            <span>admin@safereserve.com</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <div>
+            <span>Total de logs</span>
+            <strong id="totalLogs">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <div>
+            <span>Criações</span>
+            <strong id="createLogs">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-pen"></i>
+          </div>
+          <div>
+            <span>Atualizações</span>
+            <strong id="updateLogs">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-ban"></i>
+          </div>
+          <div>
+            <span>Cancelamentos</span>
+            <strong id="cancelLogs">0</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Eventos registrados</h2>
+            <p>Logs com usuário, ação, entidade e horário.</p>
+          </div>
+        </div>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="CREATE">Criação</button>
+          <button class="filter-btn" data-filter="UPDATE">Atualização</button>
+          <button class="filter-btn" data-filter="DELETE">Remoção</button>
+          <button class="filter-btn" data-filter="CANCEL">Cancelamento</button>
+          <button class="filter-btn" data-filter="LOGIN">Login</button>
+        </div>
+
+        <div class="logs-list" id="logsList"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="admin-logs.js"></script>
+</body>
+</html>

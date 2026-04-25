@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeReserve | Gerenciar Salas</title>
+
+  <link rel="stylesheet" href="admin-rooms.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main class="dashboard-page">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>SafeReserve</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../adminDashboard/admin-dashboard.html">
+          <i class="fa-solid fa-chart-line"></i>
+          Dashboard
+        </a>
+
+        <a href="#" class="active">
+          <i class="fa-solid fa-door-open"></i>
+          Gerenciar salas
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-calendar-check"></i>
+          Reservas
+        </a>
+
+        <a href="../adminLogs/admin-logs.html">
+          <i class="fa-solid fa-file-shield"></i>
+          Logs
+        </a>
+      </nav>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Sair
+      </button>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <span class="page-label">Administração</span>
+          <h1>Gerenciar salas</h1>
+          <p>Cadastre, edite e controle o status das salas disponíveis.</p>
+        </div>
+
+        <div class="user-box">
+          <div class="user-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+
+          <div>
+            <strong>Administrador</strong>
+            <span>admin@safereserve.com</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="rooms-layout">
+        <form class="room-form-card" id="roomForm">
+          <div class="panel-header">
+            <div>
+              <h2 id="formTitle">Cadastrar sala</h2>
+              <p>Preencha os dados da sala.</p>
+            </div>
+
+            <div class="card-icon">
+              <i class="fa-solid fa-door-open"></i>
+            </div>
+          </div>
+
+          <input type="hidden" id="roomId" />
+
+          <div class="form-group">
+            <label for="roomName">Nome da sala</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-door-closed"></i>
+              <input id="roomName" type="text" placeholder="Ex: Sala de Estudos 01" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="roomCode">Código</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-hashtag"></i>
+              <input id="roomCode" type="text" placeholder="Ex: S01" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="roomType">Tipo</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-layer-group"></i>
+              <select id="roomType" required>
+                <option value="">Selecione</option>
+                <option value="study">Estudo</option>
+                <option value="group">Grupo</option>
+                <option value="meeting">Reunião</option>
+                <option value="teacher">Professor</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="roomCapacity">Capacidade</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-users"></i>
+              <input id="roomCapacity" type="number" min="1" placeholder="Ex: 6" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="roomLocation">Localização</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-location-dot"></i>
+              <input id="roomLocation" type="text" placeholder="Ex: Biblioteca - Piso 1" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="roomStatus">Status</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-circle-info"></i>
+              <select id="roomStatus" required>
+                <option value="available">Disponível</option>
+                <option value="maintenance">Manutenção</option>
+                <option value="inactive">Inativa</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="primary-btn" id="submitButton">
+            <i class="fa-solid fa-plus"></i>
+            Cadastrar sala
+          </button>
+
+          <button type="button" class="secondary-btn" id="cancelEditButton">
+            Cancelar edição
+          </button>
+
+          <p class="form-message" id="formMessage"></p>
+        </form>
+
+        <section class="rooms-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Salas cadastradas</h2>
+              <p>Lista de salas disponíveis no sistema.</p>
+            </div>
+          </div>
+
+          <div class="rooms-list" id="roomsList"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <script src="admin-rooms.js"></script>
+</body>
+</html>

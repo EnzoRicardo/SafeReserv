@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeReserve | Minhas Reservas</title>
+
+  <link rel="stylesheet" href="my-reservations.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main class="dashboard-page">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>SafeReserve</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../studentHome/student-home.html">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+
+        <a href="../reservationPage/reservation.html">
+          <i class="fa-solid fa-calendar-plus"></i>
+          Reservar sala
+        </a>
+
+        <a href="#" class="active">
+          <i class="fa-solid fa-calendar-check"></i>
+          Minhas reservas
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-user"></i>
+          Meu perfil
+        </a>
+      </nav>
+
+      <button class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Sair
+      </button>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <span class="page-label">Reservas</span>
+          <h1>Minhas reservas</h1>
+          <p>Acompanhe suas reservas futuras, concluídas e canceladas.</p>
+        </div>
+
+        <div class="user-box">
+          <div class="user-avatar">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+
+          <div>
+            <strong>Aluno</strong>
+            <span>enzo@email.com</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div>
+            <span>Ativas</span>
+            <strong id="activeCount">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <span>Concluídas</span>
+            <strong id="completedCount">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-ban"></i>
+          </div>
+          <div>
+            <span>Canceladas</span>
+            <strong id="cancelledCount">0</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Histórico de reservas</h2>
+            <p>Gerencie suas reservas e acompanhe o status.</p>
+          </div>
+
+          <a href="../reservationPage/reservation.html" class="primary-btn">
+            <i class="fa-solid fa-plus"></i>
+            Nova reserva
+          </a>
+        </div>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Todas</button>
+          <button class="filter-btn" data-filter="active">Ativas</button>
+          <button class="filter-btn" data-filter="completed">Concluídas</button>
+          <button class="filter-btn" data-filter="cancelled">Canceladas</button>
+        </div>
+
+        <div class="reservations-list" id="reservationsList"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="my-reservations.js"></script>
+</body>
+</html>
