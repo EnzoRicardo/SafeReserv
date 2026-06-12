@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 
 from api.auth_views import LoginView, RegisterView
 from api.dashboard_views import DashboardStatsView
-from api.views import AuditLogViewSet, RoomViewSet, ReservationViewSet
+from api.views import AuditLogViewSet, PublicKeyView, RoomViewSet, ReservationViewSet
 
 router = DefaultRouter()
 router.register(r"salas", RoomViewSet)
@@ -16,5 +16,6 @@ urlpatterns = [
     path("api/auth/register/", RegisterView.as_view()),
     path("api/auth/login/", LoginView.as_view()),
     path("api/dashboard/stats/", DashboardStatsView.as_view()),
+    path("api/crypto/public-key/", PublicKeyView.as_view()),
     path("api/", include(router.urls)),
 ]

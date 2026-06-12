@@ -1,1 +1,5 @@
 .venv/
+backend/keys/private.pem
+__pycache__/
+*.pyc
+.env

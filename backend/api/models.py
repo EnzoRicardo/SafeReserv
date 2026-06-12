@@ -48,7 +48,9 @@ class Reservation(models.Model):
     reservation_date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
-    participants_count = models.PositiveIntegerField(default=1)
+    participants_count = models.PositiveIntegerField(default=1, null=True, blank=True)
+    encrypted_details = models.TextField(blank=True, default="")
+    wrapped_key = models.TextField(blank=True, default="")
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='approved')
     created_at = models.DateTimeField(auto_now_add=True)
 

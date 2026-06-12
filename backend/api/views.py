@@ -7,7 +7,10 @@ import os
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 
+from rest_framework.views import APIView
+
 from .audit import log_audit
+from .crypto_utils import get_public_key_pem
 from .models import AuditLog, Room, Reservation
 from .permissions import IsAdminRole
 from .serializers import (
@@ -110,3 +113,10 @@ class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AuditLog.objects.select_related("user").order_by("-created_at")
     serializer_class = AuditLogSerializer
     permission_classes = [IsAdminRole]
+
+
+class PublicKeyView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({"public_key": get_public_key_pem()})
