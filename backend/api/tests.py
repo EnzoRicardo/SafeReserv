@@ -3,7 +3,11 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .crypto_utils import hybrid_decrypt, hybrid_encrypt
+from .crypto_utils import (
+    decrypt_sensitive_reservation_data,
+    hybrid_decrypt,
+    hybrid_encrypt,
+)
 from .models import Room, Reservation
 
 User = get_user_model()
@@ -59,8 +63,16 @@ class ReservationEncryptionTests(APITestCase):
         self.assertTrue(reservation.encrypted_details)
         self.assertTrue(reservation.wrapped_key)
         self.assertIsNone(reservation.participants_count)
-        self.assertNotIn("7", reservation.encrypted_details)
+        self.assertNotEqual(
+            reservation.encrypted_details,
+            '{"participants_count": 7}',
+        )
 
+        decrypted = decrypt_sensitive_reservation_data(
+            reservation.encrypted_details,
+            reservation.wrapped_key,
+        )
+        self.assertEqual(decrypted["participants_count"], 7)
         self.assertEqual(response.data["participants_count"], 7)
 
 
