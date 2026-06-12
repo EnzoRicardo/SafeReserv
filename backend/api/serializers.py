@@ -1,5 +1,6 @@
 from rest_framework import serializers
-
+from django.utils import timezone
+from datetime import datetime, timedelta
 from .models import AuditLog, Room, Reservation, User
 
 
@@ -56,9 +57,67 @@ class RoomSerializer(serializers.ModelSerializer):
 
 
 class ReservationSerializer(serializers.ModelSerializer):
+
+    room_name = serializers.CharField(
+        source="room.name", 
+        read_only=True
+    )
+
     class Meta:
         model = Reservation
-        fields = "__all__"
+        fields = [
+            "id",
+            "user",
+            "room",
+            "room_name",
+            "reservation_date",
+            "start_time",
+            "end_time",
+            "participants_count",
+            "status",
+            "created_at",
+        ]
+
+    def validate(self, data):
+
+        start_dt = datetime.combine(
+            reservation_date,
+            start_time
+        )
+
+        end_dt = datetime.combine(
+            reservation_date,
+            end_time
+        )
+
+        if end_dt - start_dt > timedelta(hours=2):
+            raise serializers.ValidationError(
+                "A reserva não pode exceder 2 horas."
+            )
+
+        if data["reservation_date"] < timezone.localdate():
+            raise serializers.ValidationError(
+                "A data da reserva não pode ser no passado."
+            )
+
+        room = data["room"]
+        reservation_date = data["reservation_date"]
+        start_time = data["start_time"]
+        end_time = data["end_time"]
+
+        conflict = Reservation.objects.filter(
+            room=room,
+            reservation_date=reservation_date,
+            start_time__lt=end_time,
+            end_time__gt=start_time,
+        ).exists()
+        
+
+        if conflict:
+            raise serializers.ValidationError(
+                "Este horário já está reservado para esta sala."
+            )
+        return data
 
 
 class AuditLogSerializer(serializers.ModelSerializer):
