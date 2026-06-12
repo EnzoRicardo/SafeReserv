@@ -643,3 +643,24 @@ body {
     width: 100%;
   }
 }
+
+.empty-state {
+  padding: 36px;
+  border-radius: 22px;
+  text-align: center;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+}
+
+.empty-state i {
+  display: block;
+  margin-bottom: 12px;
+  color: #2563eb;
+  font-size: 34px;
+}
+
+.disable-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

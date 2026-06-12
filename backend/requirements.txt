@@ -1,0 +1,7 @@
+django==5.2.13
+djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
+psycopg2-binary
+pycryptodome
+python-dotenv

@@ -457,3 +457,29 @@ body {
   color: #991b1b;
   background: #fee2e2;
 }
+
+.empty-state {
+  padding: 36px;
+  border-radius: 22px;
+  text-align: center;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+}
+
+.empty-state i {
+  display: block;
+  margin-bottom: 12px;
+  color: #2563eb;
+  font-size: 34px;
+}
+
+.form-message {
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-message.error {
+  color: #991b1b;
+}

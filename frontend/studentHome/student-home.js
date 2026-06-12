@@ -62,7 +62,7 @@ function renderRooms() {
         </div>
       </div>
 
-      <button class="reserve-btn">
+      <button class="reserve-btn" type="button" data-reserve>
         Reservar
       </button>
     </article>
@@ -94,3 +94,9 @@ function renderReservations() {
 
 renderRooms();
 renderReservations();
+
+document.querySelectorAll("[data-reserve]").forEach((button) => {
+  button.addEventListener("click", () => {
+    window.location.href = "../reservationPage/reservation.html";
+  });
+});

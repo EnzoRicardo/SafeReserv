@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SafeReserve | Admin</title>
+  <title>SafeReserve | Reservas</title>
 
-  <link rel="stylesheet" href="admin-dashboard.css" />
+  <link rel="stylesheet" href="../adminDashboard/admin-dashboard.css" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -22,7 +22,7 @@
       </div>
 
       <nav class="sidebar-nav">
-        <a href="#" class="active">
+        <a href="../adminDashboard/admin-dashboard.html">
           <i class="fa-solid fa-chart-line"></i>
           Dashboard
         </a>
@@ -32,7 +32,7 @@
           Gerenciar salas
         </a>
 
-        <a href="../adminReservations/admin-reservations.html">
+        <a href="#" class="active">
           <i class="fa-solid fa-calendar-check"></i>
           Reservas
         </a>
@@ -52,9 +52,9 @@
     <section class="content">
       <header class="topbar">
         <div>
-          <span class="page-label">Painel administrativo</span>
-          <h1>Dashboard Admin</h1>
-          <p>Gerencie salas, reservas e acompanhe eventos de segurança.</p>
+          <span class="page-label">Administração</span>
+          <h1>Reservas do sistema</h1>
+          <p>Lista carregada em tempo real da API.</p>
         </div>
 
         <div class="user-box">
@@ -72,87 +72,60 @@
       <section class="summary-grid">
         <article class="summary-card">
           <div class="summary-icon">
-            <i class="fa-solid fa-door-open"></i>
-          </div>
-          <div>
-            <span>Total de salas</span>
-            <strong id="roomsCount">0</strong>
-          </div>
-        </article>
-
-        <article class="summary-card">
-          <div class="summary-icon">
             <i class="fa-solid fa-calendar-check"></i>
           </div>
           <div>
-            <span>Reservas ativas</span>
-            <strong id="activeReservations">0</strong>
+            <span>Total</span>
+            <strong id="totalCount">0</strong>
           </div>
         </article>
 
         <article class="summary-card">
           <div class="summary-icon">
-            <i class="fa-solid fa-clock"></i>
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <span>Aprovadas</span>
+            <strong id="approvedCount">0</strong>
+          </div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-icon">
+            <i class="fa-solid fa-hourglass-half"></i>
           </div>
           <div>
             <span>Pendentes</span>
-            <strong id="pendingReservations">0</strong>
+            <strong id="pendingCount">0</strong>
           </div>
         </article>
 
         <article class="summary-card">
           <div class="summary-icon">
-            <i class="fa-solid fa-file-shield"></i>
+            <i class="fa-solid fa-ban"></i>
           </div>
           <div>
-            <span>Logs hoje</span>
-            <strong id="logsCount">0</strong>
+            <span>Canceladas</span>
+            <strong id="cancelledCount">0</strong>
           </div>
         </article>
       </section>
 
-      <section class="main-grid">
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <h2>Reservas recentes</h2>
-              <p>Últimas solicitações realizadas no sistema.</p>
-            </div>
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Todas as reservas</h2>
+            <p>Dados persistidos no PostgreSQL via backend Django.</p>
           </div>
-
-          <div class="reservations-list" id="reservationsList"></div>
         </div>
 
-        <aside class="panel side-panel">
-          <div class="panel-header simple">
-            <div>
-              <h2>Ações rápidas</h2>
-              <p>Atalhos para administração.</p>
-            </div>
-          </div>
-
-          <div class="quick-actions">
-            <a href="../adminRooms/admin-rooms.html">
-              <i class="fa-solid fa-plus"></i>
-              Cadastrar sala
-            </a>
-
-            <a href="../adminReservations/admin-reservations.html">
-              <i class="fa-solid fa-calendar-days"></i>
-              Ver reservas
-            </a>
-
-            <a href="../adminLogs/admin-logs.html">
-              <i class="fa-solid fa-file-shield"></i>
-              Ver logs
-            </a>
-          </div>
-        </aside>
+        <p class="form-message" id="pageMessage"></p>
+        <div class="reservations-list" id="reservationsList"></div>
       </section>
     </section>
   </main>
 
   <script src="../shared/app.js"></script>
-  <script src="admin-dashboard.js"></script>
+  <script src="admin-reservations.js"></script>
 </body>
 </html>

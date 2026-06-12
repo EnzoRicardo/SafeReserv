@@ -4,63 +4,80 @@ const pendingReservations = document.getElementById("pendingReservations");
 const logsCount = document.getElementById("logsCount");
 const reservationsList = document.getElementById("reservationsList");
 
-const reservations = [
-  {
-    user: "Enzo Ricardo",
-    room: "Sala de Estudos 01",
-    date: "18/04/2026",
-    time: "14:00 - 15:00",
-    status: "approved"
-  },
-  {
-    user: "Aluno Exemplo",
-    room: "Sala de Reunião 03",
-    date: "19/04/2026",
-    time: "09:00 - 10:00",
-    status: "pending"
-  },
-  {
-    user: "Professor Exemplo",
-    room: "Sala Docente 01",
-    date: "20/04/2026",
-    time: "13:00 - 14:00",
-    status: "approved"
-  }
-];
-
 const statusMap = {
   approved: "Aprovada",
   pending: "Pendente",
-  cancelled: "Cancelada"
+  cancelled: "Cancelada",
+  rejected: "Rejeitada",
+  completed: "Concluída",
 };
 
-roomsCount.textContent = "8";
-activeReservations.textContent = reservations.filter(item => item.status === "approved").length;
-pendingReservations.textContent = reservations.filter(item => item.status === "pending").length;
-logsCount.textContent = "12";
+function renderReservations(reservations) {
+  if (!reservations.length) {
+    reservationsList.innerHTML = `
+      <div class="empty-state">
+        <i class="fa-solid fa-calendar-xmark"></i>
+        <strong>Nenhuma reserva recente</strong>
+        <p>As últimas reservas aparecerão aqui.</p>
+      </div>
+    `;
+    return;
+  }
 
-reservationsList.innerHTML = reservations.map(item => `
-  <article class="reservation-card ${item.status}">
-    <strong>${item.room}</strong>
+  reservationsList.innerHTML = reservations.map((item) => `
+    <article class="reservation-card ${item.status}">
+      <strong>${item.room}</strong>
 
-    <span>
-      <i class="fa-solid fa-user"></i>
-      ${item.user}
-    </span>
+      <span>
+        <i class="fa-solid fa-user"></i>
+        ${item.user}
+      </span>
 
-    <span>
-      <i class="fa-solid fa-calendar"></i>
-      ${item.date}
-    </span>
+      <span>
+        <i class="fa-solid fa-calendar"></i>
+        ${item.date}
+      </span>
 
-    <span>
-      <i class="fa-solid fa-clock"></i>
-      ${item.time}
-    </span>
+      <span>
+        <i class="fa-solid fa-clock"></i>
+        ${item.time}
+      </span>
 
-    <div class="status">
-      <i class="fa-solid fa-circle-check"></i>
-      ${statusMap[item.status]}
-    </div>
-  </article>
-`).join("");
+      <div class="status">
+        <i class="fa-solid fa-circle-check"></i>
+        ${statusMap[item.status] || item.status}
+      </div>
+    </article>
+  `).join("");
+}
+
+async function loadDashboard() {
+  try {
+    const response = await fetch(`${API_BASE}/dashboard/stats/`, {
+      headers: getAuthHeaders(),
+    });
+
+    if (!response.ok) {
+      throw new Error("Não foi possível carregar o dashboard.");
+    }
+
+    const data = await response.json();
+
+    roomsCount.textContent = data.rooms_count;
+    activeReservations.textContent = data.active_reservations;
+    pendingReservations.textContent = data.pending_reservations;
+    logsCount.textContent = data.logs_today;
+    renderReservations(data.recent_reservations);
+  } catch (error) {
+    console.error(error);
+    reservationsList.innerHTML = `
+      <div class="empty-state">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <strong>Erro ao carregar dashboard</strong>
+        <p>Verifique se você está logado como admin.</p>
+      </div>
+    `;
+  }
+}
+
+loadDashboard();
